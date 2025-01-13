@@ -1,0 +1,154 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#MainPageFlex{
+  display:flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+#HomePageTopDiv{
+  height: 20vh;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#Logo{
+  min-width: 100px;
+  max-width: 160px;
+  width: 8%;
+  min-height: 100px;
+  max-height: 160px;
+  position: absolute;
+  left: 20px;
+  top: 20px;
+}
+
+#WelcomeText{
+  font-size: 40px;
+}
+
+#HomePageBottomDiv{
+  background-color: #6699CC;
+  width: 100%;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#LoginDiv{
+  width: 30%;
+  height: 80%;
+  background-color: white;
+  border-radius: 3%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  border: 3px solid black;
+}
+
+#TypeofAccountDiv{
+  margin-top: 20px;
+  border: 3px solid black;
+  width: 70%;
+  height: 8%;
+  display: flex;
+  justify-content: space-around;
+}
+
+#User{
+  text-align: center;
+  width: 50%;
+  background-color: #1560bd;
+  color: white;
+  border-color: white;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-right: 3px solid black;
+}
+
+#Admin{
+  text-align: center;
+  width: 50%;
+  color: black;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;  
+}
+
+#UsernamePasswordDiv{
+  width: 70%;
+  text-align: center;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20%;
+}
+
+#UsernameDiv{
+  font-size: 24px;
+  display:flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  font-weight: bold;
+}
+
+#UsernameDiv input {
+  width: 100%;
+  height: 50px;
+  font-size: 20px;
+  text-align: center;
+  border: none;
+  border-bottom: 3px solid black;
+}
+
+#PasswordDiv{
+  font-size: 24px;
+  display:flex;
+  flex-direction: column;
+  gap: 20px;
+  font-weight: bold;
+}
+
+#PasswordDiv input {
+  width: 100%;
+  height: 50px;
+  font-size: 20px;
+  text-align: center;
+  border: none;
+  border-bottom: 3px solid black;
+}
+
+#LoginSignUpDiv{
+  height: 50px;
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 50px;
+  align-items: center;
+}
+
+#LoginSignUpDiv button{
+  width: 120px;
+  height: 50px;
+  background-color: #1560bd;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 5%;
+  cursor: pointer;
+}
