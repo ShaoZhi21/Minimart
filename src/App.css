@@ -31,7 +31,7 @@
 }
 
 #WelcomeText{
-  font-size: 40px;
+  font-size: 2.6vw;
 }
 
 #HomePageBottomDiv{
@@ -51,17 +51,35 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  border: 3px solid black;
+}
+
+#SignUpDiv{
+  width: 35%;
+  height: 90%;
+  background-color: white;
+  border-radius: 3%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
   border: 3px solid black;
 }
 
 #TypeofAccountDiv{
-  margin-top: 20px;
   border: 3px solid black;
   width: 70%;
   height: 8%;
   display: flex;
   justify-content: space-around;
+}
+
+#TypeofAccountSignUp{
+  border: 3px solid black;
+  width: 80%;
+  height: 8%;
+  display: flex;
 }
 
 #User{
@@ -109,11 +127,6 @@
   color: white;
 }
 
-#User button:hover,
-#Admin button:hover {
-  background-color: #6699CC; /* Slightly lighter shade of blue */
-}
-
 #UsernamePasswordDiv{
   width: 70%;
   text-align: center;
@@ -122,8 +135,17 @@
   flex-direction: column;
   justify-content: center;
   gap: 20%;
-  margin-top: -30px;
-  margin-bottom: -30px;
+}
+
+#SignUpDivTwo{
+  width: 70%;
+  text-align: center;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 5%;
 }
 
 #UsernameDiv{
@@ -142,6 +164,23 @@
   text-align: center;
   border: none;
   border-bottom: 3px solid black;
+}
+
+.SignUpDetailsDiv{
+  font-size: 20px;
+  font-weight: bold;
+  display:flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.SignUpDetailsDiv input{
+  width: 70%;
+  height: 40px;
+  font-size: 20px;
+  text-align: center;
+  border-bottom: 2px solid black;
 }
 
 #PasswordDiv{
@@ -163,7 +202,7 @@
 
 #LoginSignUpDiv{
   height: 50px;
-  width: 70%;
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
