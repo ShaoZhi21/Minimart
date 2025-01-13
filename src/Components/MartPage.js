@@ -3,7 +3,9 @@ import React, { useState } from 'react';
 
 function MartPage() {
   return (
-    <div></div>
+    <div>
+      <h1>This is the Mart</h1>
+    </div>
   );
 }
 

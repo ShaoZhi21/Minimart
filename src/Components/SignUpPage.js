@@ -3,7 +3,9 @@ import React, { useState } from 'react';
 
 function SignUpPage() {
   return (
-    <div></div>
+    <div>
+      <h1>This is the signup page</h1>
+    </div>
   );
 }
 

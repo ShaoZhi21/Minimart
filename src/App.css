@@ -80,11 +80,38 @@
 #Admin{
   text-align: center;
   width: 50%;
-  color: black;
+  background-color: #6699CC;
   display:flex;
   align-items: center;
-  justify-content: center;
-  cursor: pointer;  
+  justify-content: center; 
+}
+
+#User button{
+  border: none;
+  height: 100%;
+  width: 100%;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#Admin button{
+  height: 100%;
+  width: 100%;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.Selected{
+  background-color: #1560bd;
+  color: white;
+}
+
+#User button:hover,
+#Admin button:hover {
+  background-color: #6699CC; /* Slightly lighter shade of blue */
 }
 
 #UsernamePasswordDiv{
@@ -95,6 +122,8 @@
   flex-direction: column;
   justify-content: center;
   gap: 20%;
+  margin-top: -30px;
+  margin-bottom: -30px;
 }
 
 #UsernameDiv{
@@ -143,12 +172,31 @@
 }
 
 #LoginSignUpDiv button{
-  width: 120px;
+  width: 100px;
   height: 50px;
   background-color: #1560bd;
   color: white;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
   border-radius: 5%;
   cursor: pointer;
+}
+
+#Login, #SignUp {
+  border: 2px solid black;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  background-color: #1560bd;
+  border-radius: 5%;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Smooth transition for effects */
+}
+
+#Login:hover, #SignUp:hover {
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.7); /* Larger, darker shadow */
+}
+
+#Login:active, #Signup:active {
+  transform: translateY(2px); /* Indent effect on click */
 }
