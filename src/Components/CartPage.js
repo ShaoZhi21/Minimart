@@ -29,6 +29,11 @@ function CartPage({ cart, setCart }) {
         setCart(newCart); // Also update the parent state
     };
 
+    const handleSubmit = () => {
+        // Add your submit logic here (e.g., proceed to checkout)
+        alert("Proceeding to checkout...");
+    };
+
     const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
 
     return (
@@ -82,6 +87,7 @@ function CartPage({ cart, setCart }) {
                         <p>Your cart is empty.</p>
                     )}
                 </div>
+                <button id="SubmitButton" onClick={handleSubmit}>Submit</button>
             </div>
         </div>
     );
