@@ -39,12 +39,12 @@ function SignUpPage() {
     setSelectedAccount(account);
   }
   return (
-    <div id="MainPageFlex">
-      <div id="HomePageTopDiv">
-        <img id="Logo" src={Logo} alt="Logo"></img>
-        <h1 id="WelcomeText">Welcome to Muhammadiyah Welfare Home Minimart</h1>
+    <div className="MainPageFlex">
+      <div className="HomePageTopDiv">
+        <img className="Logo" src={Logo} alt="Logo"></img>
+        <h1 className="WelcomeText">Welcome to Muhammadiyah Welfare Home Minimart</h1>
       </div>
-      <div id="HomePageBottomDiv">
+      <div className="HomePageBottomDiv">
         <div id="SignUpDiv">
           <div id="SignUpDivTwo">
             <div id="TypeofAccountSignUp">

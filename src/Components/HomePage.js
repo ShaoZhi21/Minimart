@@ -13,15 +13,17 @@ function HomePage() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-
+  
     const credentials = {
       username,
       password,
-      accountType: selectedAccount,  // Add account type here
+      accountType: selectedAccount,  // Ensure the selected account type is included
     };
   
     try {
       const res = await axios.post('http://localhost:3009/login', credentials);
+  
+      // Extract the token from the response
       const token = res.data.token;
       localStorage.setItem('authToken', token);
       alert('Logged in successfully');
@@ -34,7 +36,13 @@ function HomePage() {
       }
     } catch (error) {
       console.error(error);
-      setError('Invalid username or password');
+  
+      // Check the error response to provide a more specific error message
+      if (error.response && error.response.data) {
+        setError(error.response.data);  // Use the error message from the backend
+      } else {
+        setError('Something went wrong. Please try again later.');
+      }
     }
   };
 
@@ -43,12 +51,12 @@ function HomePage() {
   }
 
   return (
-    <div id="MainPageFlex">
-      <div id="HomePageTopDiv">
-        <img id="Logo" src={Logo} alt="Logo"></img>
-        <h1 id="WelcomeText">Welcome to Muhammadiyah Welfare Home Minimart</h1>
+    <div className="MainPageFlex">
+      <div className="HomePageTopDiv">
+        <img className="Logo" src={Logo} alt="Logo"></img>
+        <h1 className="WelcomeText">Welcome to Muhammadiyah Welfare Home Minimart</h1>
       </div>
-      <div id="HomePageBottomDiv">
+      <div className="HomePageBottomDiv">
         <div id="LoginDiv">
           <div id="TypeofAccountDiv">
             <div id="User">

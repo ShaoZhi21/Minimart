@@ -55,10 +55,10 @@ app.post('/signup', async (req, res) => {
 
 // Login route
 app.post('/login', async (req, res) => {
-  const { username, password } = req.body;
+  const { username, password, accountType } = req.body;
 
-  if (!username || !password) {
-    return res.status(400).send('Username and password are required');
+  if (!username || !password || !accountType) {
+    return res.status(400).send('Username, password, and account type are required');
   }
 
   try {
@@ -82,8 +82,13 @@ app.post('/login', async (req, res) => {
         return res.status(400).send('Invalid password');
       }
 
+      // Check if the provided accountType matches the user's account type
+      if (user.accountType !== accountType) {
+        return res.status(400).send('Incorrect account type');
+      }
+
       // Generate JWT token
-      const token = jwt.sign({ userId: user.id }, secret, { expiresIn: '1h' });
+      const token = jwt.sign({ userId: user.id, accountType: user.accountType }, secret, { expiresIn: '1h' });
       res.json({ token });
     });
   } catch (err) {
