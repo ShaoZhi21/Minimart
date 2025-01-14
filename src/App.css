@@ -20,18 +20,18 @@
 }
 
 .Logo{
-  min-width: 100px;
+  min-width: 140px;
   max-width: 160px;
   width: 8%;
-  min-height: 100px;
+  min-height: 140px;
   max-height: 160px;
   position: absolute;
   left: 20px;
   top: 20px;
 }
 
-.WelcomeText{
-  font-size: 2.6vw;
+.WelcomeText {
+  font-size: 40px;
 }
 
 .HomePageBottomDiv{
