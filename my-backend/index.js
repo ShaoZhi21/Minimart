@@ -97,6 +97,47 @@ app.post('/login', async (req, res) => {
   }
 });
 
+app.get('/products', (req, res) => {
+  const query = `
+    SELECT c.id AS category_id, c.name AS category_name, p.id AS product_id, p.name AS product_name, p.image_url 
+    FROM products p
+    JOIN categories c ON p.category_id = c.id;
+  `;
+
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('MySQL Error:', err);
+      res.status(500).send(err);
+    } else {
+      console.log('Products fetched:', results); // Add this line to log the raw results
+      const categories = results.reduce((acc, row) => {
+        const { category_id, category_name, product_id, product_name, image_url } = row;
+        
+        // If category already exists in accumulator, push the product to it
+        if (!acc[category_id]) {
+          acc[category_id] = {
+            id: category_id,
+            name: category_name,
+            products: []
+          };
+        }
+        
+        // Add product to the respective category
+        acc[category_id].products.push({
+          id: product_id,
+          name: product_name,
+          image_url: image_url
+        });
+        
+        return acc;
+      }, {});
+
+      // Convert the accumulator object into an array and send it
+      res.json(Object.values(categories)); // Send the grouped result
+    }
+  });
+});
+
 // Start server
 const PORT = process.env.PORT || 3009;
 app.listen(PORT, () => {
