@@ -58,7 +58,7 @@ function CartPage({ cart, setCart }) {
         <div className="MainPageFlex">
             <div className="HomePageTopDiv">
                     <img className="Logo" src={Logo} alt="Logo"></img>
-                    <h1 className="WelcomeText">Order History</h1>
+                    <h1 className="WelcomeText">Cart</h1>
                     <Link to="/mart">
                     <button className='navButton'>Back</button>
                     </Link>

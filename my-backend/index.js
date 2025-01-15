@@ -188,6 +188,30 @@ app.post('/submit-order', (req, res) => {
   });
 });
 
+app.get('/order-history/:username/:name', (req, res) => {
+  const { username, name } = req.params;
+
+  const query = `
+    SELECT oi.product_name, oi.product_id, oi.quantity, p.image_url
+    FROM orders o
+    JOIN order_items oi ON o.id = oi.order_id
+    JOIN products p ON oi.product_id = p.id
+    WHERE o.username = ? AND o.name = ?
+  `;
+
+  db.query(query, [username, name], (err, results) => {
+    if (err) {
+      console.error('Error fetching order history:', err);
+      return res.status(500).json({ error: `Error fetching order history: ${err.message}` });
+    }
+    if (results.length === 0) {
+      return res.status(404).json({ message: 'No orders found' });
+    }
+    res.json(results); // Send the fetched data as a response
+  });
+});
+
+
 
 // Start server
 const PORT = process.env.PORT || 3009;

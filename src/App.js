@@ -23,7 +23,7 @@ function App() {
         <Route path="/auction" element={<AuctionPage />} />
         <Route path="/product/:productId" element={<ProductPage cart={cart} setCart={setCart} />} />
         <Route path="/cart" element={<CartPage cart={cart} setCart={setCart} />} />
-        <Route path="/orderhistory" element={<OrderHistory/>} />
+        <Route path="/orderhistory/:username/:name" element={<OrderHistory />} />
         <Route path="/voucher" element={<Voucher/>} />
       </Routes>
     </Router>

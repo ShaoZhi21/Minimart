@@ -10,6 +10,10 @@ function MartPage({ cart, setCart }) {
   const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate(); // Hook for navigation
 
+  // Retrieve username and name from localStorage
+  const username = localStorage.getItem('username');
+  const name = localStorage.getItem('name');
+
   useEffect(() => {
     // Fetch product categories from the backend when the component mounts
     axios.get('http://localhost:3009/products') // Replace with your actual API endpoint
@@ -77,13 +81,13 @@ function MartPage({ cart, setCart }) {
           />
           <div id="NavBar">
             <Link to="/voucher">
-            <button className="navButton">Vouchers</button>
+              <button className="navButton">Vouchers</button>
             </Link>
             <Link to="/auction">
-            <button className="navButton">Auction</button>
+              <button className="navButton">Auction</button>
             </Link>
-            <Link to="/orderhistory">
-            <button className="navButton">Order History</button>
+            <Link to={`/orderhistory/${username}/${name}`}>
+              <button className="navButton">View Order History</button>
             </Link>
           </div>
         </div>
@@ -129,4 +133,3 @@ function MartPage({ cart, setCart }) {
 }
 
 export default MartPage;
-
