@@ -257,7 +257,8 @@ html, body, #root {
 #NavBarMart{
   display: flex;
   align-items: center;
-  width: 1200px;
+  width: 800px;
+  justify-content: space-evenly;
 }
 
 #NavBar{
@@ -319,7 +320,7 @@ html, body, #root {
 }
 
 #searchBar {
-  width: 800px;
+  width: 500px;
   height: 50px;
   font-size: 18px;
   padding: 0 15px; /* Padding inside the input for better spacing */
@@ -589,7 +590,7 @@ html, body, #root {
   background-color: white;
   border-radius: 10px;
   width: 50%;
-  height: 50%;
+  height: 80%;
   border: 2px solid black;
   display: flex;
   flex-direction: column;
