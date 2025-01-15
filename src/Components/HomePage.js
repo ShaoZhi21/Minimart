@@ -17,17 +17,21 @@ function HomePage() {
     const credentials = {
       username,
       password,
-      accountType: selectedAccount,  // Ensure the selected account type is included
+      accountType: selectedAccount, // Ensure the selected account type is included
     };
   
     try {
       const res = await axios.post('http://localhost:3009/login', credentials);
   
-      // Extract the token from the response
-      const token = res.data.token;
+      // Extract the token and user details from the response
+      const { token, username: userUsername, name, address } = res.data;
+  
+      // Save the token and user details in localStorage
       localStorage.setItem('authToken', token);
+      localStorage.setItem('userDetails', JSON.stringify({ username: userUsername, name, address }));
+      console.log('User details saved:', { username: userUsername, name, address });
       alert('Logged in successfully');
-      
+  
       // Navigate to the appropriate page based on the account type
       if (selectedAccount === "Admin") {
         navigate('/dashboard'); // Navigate to /dashboard if Admin
@@ -39,12 +43,13 @@ function HomePage() {
   
       // Check the error response to provide a more specific error message
       if (error.response && error.response.data) {
-        setError(error.response.data);  // Use the error message from the backend
+        setError(error.response.data); // Use the error message from the backend
       } else {
         setError('Something went wrong. Please try again later.');
       }
     }
   };
+  
 
   const handleAccountSelection = (account) => {
     setSelectedAccount(account);

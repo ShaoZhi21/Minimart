@@ -53,7 +53,7 @@ app.post('/signup', async (req, res) => {
   }
 });
 
-// Login route
+// Updated Login Route
 app.post('/login', async (req, res) => {
   const { username, password, accountType } = req.body;
 
@@ -62,7 +62,6 @@ app.post('/login', async (req, res) => {
   }
 
   try {
-    // SQL query to get user by username
     const sql = 'SELECT * FROM users WHERE username = ?';
     db.query(sql, [username], async (err, results) => {
       if (err) {
@@ -75,27 +74,36 @@ app.post('/login', async (req, res) => {
       }
 
       const user = results[0];
-
-      // Compare password
       const validPassword = await bcrypt.compare(password, user.password);
+
       if (!validPassword) {
         return res.status(400).send('Invalid password');
       }
 
-      // Check if the provided accountType matches the user's account type
       if (user.accountType !== accountType) {
         return res.status(400).send('Incorrect account type');
       }
 
-      // Generate JWT token
-      const token = jwt.sign({ userId: user.id, accountType: user.accountType }, secret, { expiresIn: '1h' });
-      res.json({ token });
+      const token = jwt.sign(
+        { userId: user.id, accountType: user.accountType },
+        secret,
+        { expiresIn: '1h' }
+      );
+
+      // Send back user details and token
+      res.json({
+        token,
+        username: user.username,
+        name: user.name,
+        address: user.address,
+      });
     });
   } catch (err) {
     console.error(err);
     res.status(500).send('Server error');
   }
 });
+
 
 app.get('/products', (req, res) => {
   const query = `
@@ -137,6 +145,49 @@ app.get('/products', (req, res) => {
     }
   });
 });
+
+// Submit Order Route
+app.post('/submit-order', (req, res) => {
+  const { username, name, address, products } = req.body;
+
+  if (!username || !name || !address || !Array.isArray(products)) {
+    return res.status(400).send('Invalid order data');
+  }
+
+  const orderQuery = `
+    INSERT INTO orders (username, name, address) VALUES (?, ?, ?);
+  `;
+
+  db.query(orderQuery, [username, name, address], (err, result) => {
+    if (err) {
+      console.error('MySQL Error:', err);
+      return res.status(500).send('Error saving order');
+    }
+
+    const orderId = result.insertId;
+
+    // Insert products associated with the order
+    const productQuery = `
+      INSERT INTO order_items (order_id, product_id, product_name, quantity) VALUES ?;
+    `;
+    const productData = products.map(product => [
+      orderId,
+      product.id,
+      product.name,
+      product.quantity,
+    ]);
+
+    db.query(productQuery, [productData], (err) => {
+      if (err) {
+        console.error('MySQL Error:', err);
+        return res.status(500).send('Error saving order items');
+      }
+
+      res.status(200).send('Order submitted successfully');
+    });
+  });
+});
+
 
 // Start server
 const PORT = process.env.PORT || 3009;

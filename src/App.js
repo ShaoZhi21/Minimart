@@ -8,6 +8,8 @@ import DashboardPage from './Components/DashboardPage';
 import ProductPage from './Components/ProductPage';
 import AuctionPage from './Components/AuctionPage';
 import CartPage from './Components/CartPage';
+import OrderHistory from './Components/OrderHistory';
+import Voucher from './Components/Voucher';
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -21,6 +23,8 @@ function App() {
         <Route path="/auction" element={<AuctionPage />} />
         <Route path="/product/:productId" element={<ProductPage cart={cart} setCart={setCart} />} />
         <Route path="/cart" element={<CartPage cart={cart} setCart={setCart} />} />
+        <Route path="/orderhistory" element={<OrderHistory/>} />
+        <Route path="/voucher" element={<Voucher/>} />
       </Routes>
     </Router>
   );

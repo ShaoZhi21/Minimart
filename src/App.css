@@ -6,6 +6,7 @@
 
 html, body, #root {
   height: 100%; 
+  overflow-x: hidden;
 }
 
 .MainPageFlex{
@@ -33,6 +34,8 @@ html, body, #root {
   font-size: 40px;
 }
 
+
+
 .HomePageBottomDiv{
   background-color: #6699CC;
   width: 100%;
@@ -42,7 +45,7 @@ html, body, #root {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow-y: auto;
+  overflow-y: scroll;
 }
 
 .HomePageBottomDivShop{
@@ -50,7 +53,7 @@ html, body, #root {
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: start;
   height: 100%;
 }
 
@@ -265,15 +268,24 @@ html, body, #root {
   align-items: center;
 }
 
-.navButton{
+.navButton {
   background-color: #6699CC;
-  height: 100%;
+  height: 50px;
   width: 120px;
   font-size: 20px;
   color: white;
   font-weight: bold;
   border-radius: 10px;
+  transition: background-color 0.3s ease; /* Smooth transition */
 }
+
+.navButton:hover {
+  background-color: #4a80b0; /* Darker blue on hover */
+  cursor: pointer; /* Change cursor to pointer when hovered */
+  transform: scale(1.05); /* Slightly scale the button */
+}
+
+
 
 #CartContainer {
   position: relative;
@@ -333,23 +345,56 @@ html, body, #root {
   flex-direction: column;
   margin-left: 200px;
   margin-right: 200px;
-  margin-top: 20px;
-  height: 270px;
 }
 
 .CategoryLabel {
-  font-size: 1.6em;
-  font-weight: bold;
-  margin-bottom: 15px;
-  height: 30px;
+  font-size: 1.8em; /* Slightly larger text for emphasis */
+  font-weight: 600; /* Lighter weight for a modern look */
+  text-align: center; /* Keep text centered */
+  color: #333; /* Darker text color for better readability */
+  letter-spacing: 0.5px; /* Add subtle spacing between letters for clarity */
+  text-transform: uppercase; /* Make text uppercase for a bolder impact */
+  padding: 10px 0; /* Padding for top and bottom to balance the height */
+  border-radius: 8px; /* Rounded corners for a softer look */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Light shadow to make it pop */
+  display: inline-block; /* Ensures it doesn't take full width */
 }
 
 .Products {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;   /* Keep items in a single row */
   flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: flex-start;  /* Align items to the left */
+  align-items: center;  /* Center items vertically */
+  overflow-x: scroll;    /* Enable horizontal scrolling */
+  overflow-y: hidden;
+}
+
+/* Customize the appearance of the horizontal scrollbar */
+.Products::-webkit-scrollbar {
+  height: 8px;  /* Height of the scrollbar */
+}
+
+.Products::-webkit-scrollbar-track {
+  background: #f1f1f1;  /* Background of the scrollbar track */
+  border-radius: 5px;  /* Round the corners of the scrollbar track */
+}
+
+.Products::-webkit-scrollbar-thumb {
+  background: #888;  /* Color of the scrollbar thumb */
+  border-radius: 5px;  /* Round the corners of the scrollbar thumb */
+}
+
+.Products::-webkit-scrollbar-thumb:hover {
+  background: #555;  /* Color of the scrollbar thumb when hovered */
+}
+
+/* Styling for the individual product items */
+.ProductSquare {
+  flex: 0 0 auto;  /* Prevent products from growing or shrinking */
+  width: 200px;    /* Fixed width for each product item */
+  text-align: center;
+  margin-right: 10px;  /* Space between products */
 }
 
 .ProductSquare {
@@ -425,11 +470,20 @@ html, body, #root {
   width: 100%;
 }
 
+/* Empty State Message */
+.NoCategories,
+.NoProducts {
+  font-size: 2rem;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+  margin-top: 40px;
+}
+
 /* Styling for the Product Division */
 .ProductDiv {
   width: 70%;
   display: flex;
-  margin-top: 20px;
   justify-content: space-between;
   background-color: #fff;
   border: 3px solid #f0f0f0; /* Light border for a more subtle effect */
@@ -532,11 +586,11 @@ html, body, #root {
 }
 
 #CartDiv {
-  border: 3px solid black;
   background-color: white;
   border-radius: 10px;
   width: 50%;
-  height: 85%;
+  height: 50%;
+  border: 2px solid black;
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -665,7 +719,7 @@ html, body, #root {
   border-radius: 5px;
   font-size: 20px;
   font-weight: bold;
-  width: 15%;
+  width: 120%;
   cursor: pointer;
   transition: background-color 0.3s ease;
   margin-top: 20px;

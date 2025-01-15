@@ -7,6 +7,7 @@ import { useNavigate, Link } from 'react-router-dom';
 
 function MartPage({ cart, setCart }) {
   const [categories, setCategories] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate(); // Hook for navigation
 
   useEffect(() => {
@@ -54,21 +55,36 @@ function MartPage({ cart, setCart }) {
   // Calculate the total number of items in the cart
   const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
 
+  // Filter categories and products based on search query
+  const filteredCategories = categories.map(category => ({
+    ...category,
+    products: category.products.filter(product =>
+      product.name.toLowerCase().includes(searchQuery.toLowerCase())
+    ),
+  }));
+
   return (
     <div className="MainPageFlex">
       <div className="HomePageTopDiv">
-        <img className="Logo" src={Logo} alt="Logo"></img>
+        <img className="Logo" src={Logo} alt="Logo" />
         <div id="NavBarMart">
           <input 
             type="text" 
             id="searchBar" 
             placeholder="Search..." 
-            // Add search functionality here
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)} // Update search query
           />
           <div id="NavBar">
-            <button className="navButton">Filter</button>
+            <Link to="/voucher">
             <button className="navButton">Vouchers</button>
+            </Link>
+            <Link to="/auction">
             <button className="navButton">Auction</button>
+            </Link>
+            <Link to="/orderhistory">
+            <button className="navButton">Order History</button>
+            </Link>
           </div>
         </div>
         <Link to="/cart" state={{ cart }}>
@@ -82,13 +98,14 @@ function MartPage({ cart, setCart }) {
       </div>
 
       <div className="HomePageBottomDivShop">
-        {categories.length > 0 ? (
-          categories.map(category => (
-            <div key={category.id} className="CategoryRow">
-              <div className="CategoryLabel">{category.name}</div>
-              <div className="Products">
-                {category.products.length > 0 ? (
-                  category.products.map(product => (
+        {filteredCategories.length > 0 ? (
+          filteredCategories.map(category => (
+            // Only render category row if there are products in the category
+            category.products.length > 0 && (
+              <div key={category.id} className="CategoryRow">
+                <div className="CategoryLabel">{category.name}</div>
+                <div className="Products">
+                  {category.products.map(product => (
                     <div key={product.id} className="ProductSquare">
                       <div className="ProductLink" onClick={() => handleProductClick(product)}>
                         <img className="productIMG" src={product.image_url} alt={product.name} />
@@ -98,15 +115,13 @@ function MartPage({ cart, setCart }) {
                         <button className="add-to-cart-button" onClick={() => handleAddClick(product)}>Add</button>
                       </div>
                     </div>
-                  ))
-                ) : (
-                  <div>No products available</div>
-                )}
+                  ))}
+                </div>
               </div>
-            </div>
+            )
           ))
         ) : (
-          <div>No categories available</div>
+          <div className="NoCategories">No categories available</div>
         )}
       </div>
     </div>
@@ -114,3 +129,4 @@ function MartPage({ cart, setCart }) {
 }
 
 export default MartPage;
+

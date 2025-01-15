@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Logo from '../Assets/muhammadiyah_logo.png';
 import Cart from '../Assets/cart.png';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 function CartPage({ cart, setCart }) {
     const [updatedCart, setUpdatedCart] = useState(cart); // Local state for cart
@@ -29,9 +30,26 @@ function CartPage({ cart, setCart }) {
         setCart(newCart); // Also update the parent state
     };
 
-    const handleSubmit = () => {
-        // Add your submit logic here (e.g., proceed to checkout)
-        alert("Proceeding to checkout...");
+    
+    const userDetails = JSON.parse(localStorage.getItem('userDetails'));
+
+    const handleSubmitOrder = async (cart) => {
+      try {
+        const orderData = {
+          username: userDetails.username,
+          name: userDetails.name,
+          address: userDetails.address,
+          products: cart, // Array of products with { id, name, quantity }
+        };
+        console.log(orderData);
+        await axios.post('http://localhost:3009/submit-order', orderData);
+        alert('Order submitted successfully');
+        setUpdatedCart([]);  // Empty local cart state
+        setCart([]);
+      } catch (err) {
+        console.error(err);
+        alert('Error submitting order');
+      }
     };
 
     const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
@@ -39,28 +57,12 @@ function CartPage({ cart, setCart }) {
     return (
         <div className="MainPageFlex">
             <div className="HomePageTopDiv">
-                <img className="Logo" src={Logo} alt="Logo"></img>
-                <div id="NavBarMart">
-                    <input 
-                        type="text" 
-                        id="searchBar" 
-                        placeholder="Search..." 
-                    />
-                    <div id="NavBar">
-                        <button className="navButton">Filter</button>
-                        <button className="navButton">Vouchers</button>
-                        <button className="navButton">Auction</button>
-                    </div>
-                </div>
-                <Link to="/cart" state={{ cart }}>
-                <div id="CartContainer">
-                    <img id="Cart" src={Cart} alt="Cart" />
-                    {totalItems > 0 && (
-                    <div className="cart-badge">{totalItems}</div>
-                    )}
-                </div>
-                </Link>
-            </div>
+                    <img className="Logo" src={Logo} alt="Logo"></img>
+                    <h1 className="WelcomeText">Order History</h1>
+                    <Link to="/mart">
+                    <button className='navButton'>Back</button>
+                    </Link>
+                  </div>
             <div className="HomePageBottomDiv">
                 <div id="CartDiv">
                     <h1 id="CartText">Cart</h1>
@@ -87,7 +89,9 @@ function CartPage({ cart, setCart }) {
                         <p>Your cart is empty.</p>
                     )}
                 </div>
-                <button id="SubmitButton" onClick={handleSubmit}>Submit</button>
+                <Link to="/mart">
+                <button id="SubmitButton" onClick={()=> handleSubmitOrder(updatedCart)}>Submit</button>
+                </Link>
             </div>
         </div>
     );
