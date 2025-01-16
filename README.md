@@ -106,15 +106,14 @@ The **Muhammadiyah Welfare Home Minimart Website** is a web application develope
         name VARCHAR(255)
     );
 6. **Run the Application**: 
-**Backend**
+    **Backend**
     ```bash
     cd backend
     node index.js
-**Frontend**
+    **Frontend**
     ```bash
     cd minimart
     npm start
-
 The frontend will now be available at http://localhost:3000, and the backend at http://localhost:3009.
 
 ### API Endpoints
