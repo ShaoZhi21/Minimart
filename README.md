@@ -6,7 +6,7 @@ The **Muhammadiyah Welfare Home Minimart Website** is a web application develope
 
 ## Context and Purpose
 **Mission of the NPO**
-This project supports [Name of NPO], which helps boys aged 10-19 who have experienced neglect, abuse, homelessness, or involvement in the juvenile justice system. The NPO aims to provide a safe environment where these boys can rebuild their lives and develop essential life skills.
+This project supports Muhammadiyah Welfare Home, which helps boys aged 10-19 who have experienced neglect, abuse, homelessness, or involvement in the juvenile justice system. The NPO aims to provide a safe environment where these boys can rebuild their lives and develop essential life skills.
 
 **Intended Users**
 The minimart prototype serves the boys in the NPO’s care, allowing them to access basic necessities such as food, hygiene products, and clothing, empowering them to meet their needs independently.
