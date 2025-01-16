@@ -46,11 +46,11 @@ The **Muhammadiyah Welfare Home Minimart Website** is a web application develope
    git clone https://github.com/ShaoZhi21/Minimart.git
    cd minimart
 2. **Install dependencies**:
-**Frontend**
+    **Frontend**
     ```bash
     cd minimart
     npm install
-**Backend**
+    **Backend**
     ```bash
     cd backend
     npm install
@@ -114,32 +114,36 @@ The **Muhammadiyah Welfare Home Minimart Website** is a web application develope
     ```bash
     cd minimart
     npm start
-The frontend will now be available at http://localhost:3000, and the backend at http://localhost:3009.
+The frontend will now be available at http://localhost:3000, and the backend at http://localhost:3009.<br>
 
 ### API Endpoints
 **Auth Routes**
-POST /signup - Register a new user
-POST /login - Log in and receive a JWT token
+POST /signup - Register a new user<br>
+POST /login - Log in and receive a JWT token<br>
+
 **Product Routes**
-GET /products - Get all products with their categories
-POST /products - Add a new product (Admin)
-DELETE /products/:id - Delete a product (Admin)
-PUT /products/:id - Update product quantity (Admin)
+GET /products - Get all products with their categories<br>
+POST /products - Add a new product (Admin)<br>
+DELETE /products/:id - Delete a product (Admin)<br>
+PUT /products/:id - Update product quantity (Admin)<br>
+
 **Order Routes**
-POST /submit-order - Submit an order with the products from the cart
-GET /order-history/:username/:name - View order history
+POST /submit-order - Submit an order with the products from the cart<br>
+GET /order-history/:username/:name - View order history<br>
+
 **User Routes**
-GET /users - Fetch all users (Admin)
-DELETE /users/:id - Delete a user (Admin)
+GET /users - Fetch all users (Admin)<br>
+DELETE /users/:id - Delete a user (Admin)<br>
+
 **Usage**
-Register: Create a new account by providing your name, email, phone, username, password, and account type.
-Log in: Log in using your username and password.
-Browse Products: Search or browse products by category.
-Add to Cart: Add products to your shopping cart.
-Checkout: Submit your order with the products in your cart.
+Register: Create a new account by providing your name, email, phone, username, password, and account type.<br>
+Log in: Log in using your username and password.<br>
+Browse Products: Search or browse products by category.<br>
+Add to Cart: Add products to your shopping cart.<br>
+Checkout: Submit your order with the products in your cart.<br>
 
 **Created by**:
-Soong Shao Zhi
-Lee Chong Rui
-William Chua
-Fabian Lim
+Soong Shao Zhi<br>
+Lee Chong Rui<br>
+William Chua<br>
+Fabian Lim<br>
