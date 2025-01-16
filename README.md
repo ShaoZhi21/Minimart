@@ -46,13 +46,10 @@ The **Muhammadiyah Welfare Home Minimart Website** is a web application develope
    git clone https://github.com/ShaoZhi21/Minimart.git
    cd minimart
 2. **Install dependencies**:
-    **Frontend**
     ```bash
     cd minimart
     npm install
-**Backend**
-    ```bash
-    cd backend
+    cd .. // To minimart
     npm install
 3. **Set up MySQL Database**:
     ```bash
