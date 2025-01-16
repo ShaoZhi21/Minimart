@@ -1,5 +1,51 @@
-Muhammadiyah Welfare Home Minimart Website
-This is an e-commerce platform designed for a minimart at a welfare home. The platform allows residents and staff to browse a variety of essential products, add them to their cart, and place orders. It aims to provide a convenient and accessible way for the welfare home community to manage their shopping needs, featuring user-friendly navigation and an efficient order management system.
+# Hack4Good Hackathon: Muhammadiyah Welfare Home Minimart Website
+
+## Project Overview
+
+The **Muhammadiyah Welfare Home Minimart Website** is a web application developed as part of the **Hack4Good Hackathon**. The goal of this project is to provide an online minimart for the welfare home, allowing them to manage and sell essential goods, all while creating a user-friendly platform for both administrators and customers. The website facilitates:
+
+- User registration and login
+- Product listing and categorization
+- Order placement and order history tracking
+- Admin functions like adding products, updating stock, and viewing user information
+
+## Features
+
+### User Features
+
+- **Sign Up and Login**: Users can create accounts and log in with different account types.
+- **Product Browsing**: Products are categorized and listed, complete with images and descriptions.
+- **Order Submission**: Users can submit orders with selected products and have them delivered to their address.
+- **Order History**: Users can view their past orders, including details like product names and quantities.
+
+### Admin Features
+
+- **Manage Users**: Admins can view all users and delete users if necessary.
+- **Manage Products**: Admins can add, update, and delete products from the inventory.
+- **Order Management**: Admins can view all orders and manage order items.
+
+## Tech Stack
+
+- **Frontend**: React
+- **Backend**: Node.js with Express
+- **Database**: MySQL
+- **Authentication**: JWT (JSON Web Tokens) for secure authentication
+- **Hashing**: bcryptjs for password hashing
+
+## Installation
+
+### Prerequisites
+
+1. **Node.js**: Ensure that Node.js is installed on your machine.
+2. **MySQL Database**: Set up a MySQL database to store user and product information.
+
+### Steps to Run
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/yourusername/muhammadiyah-welfare-home-minimart.git
+   cd muhammadiyah-welfare-home-minimart
+
 
 Features
 User Authentication: Users can register and log in to manage their accounts and view order history.
