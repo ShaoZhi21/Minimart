@@ -10,14 +10,14 @@ The **Muhammadiyah Welfare Home Minimart Website** is a web application develope
 
 - **Sign Up and Login**: Users can create accounts and log in with different account types.
 - **Product Browsing**: Products are categorized and listed, complete with images and descriptions.
-- **Order Submission**: Users can submit orders with selected products and have them delivered to their address.
+- **Order Submission**: Users can add to cart and submit orders.
 - **Order History**: Users can view their past orders, including details like product names and quantities.
 
 ### Admin Features
 
 - **Manage Users**: Admins can view all users and delete users if necessary.
 - **Manage Products**: Admins can add, update, and delete products from the inventory.
-- **Order Management**: Admins can view all orders and manage order items.
+- **Order Management**: Admins can view all orders and complete order items.
 
 ## Tech Stack
 
@@ -48,12 +48,12 @@ The **Muhammadiyah Welfare Home Minimart Website** is a web application develope
     npm install
 3. **Set up MySQL Database**:
     ```bash
-    CREATE DATABASE minimart_db;
+    CREATE DATABASE minimart_db (or any other name);
 4. **Configure Environment Variables**:
     ```bash
     DB_USER=your_mysql_user
     DB_PASSWORD=your_mysql_password
-    DB_NAME=your_database_name
+    DB_NAME=minimart_db (or any other name)
     JWT_SECRET=your_jwt_secret
 5. **Create Tables**:
     ```bash
@@ -123,13 +123,6 @@ GET /order-history/:username/:name - View order history<br>
 ### User Routes<br>
 GET /users - Fetch all users (Admin)<br>
 DELETE /users/:id - Delete a user (Admin)<br>
-
-### Usage<br>
-Register: Create a new account by providing your name, email, phone, username, password, and account type.<br>
-Log in: Log in using your username and password.<br>
-Browse Products: Search or browse products by category.<br>
-Add to Cart: Add products to your shopping cart.<br>
-Checkout: Submit your order with the products in your cart.<br>
 
 ### Created by:<br>
 Soong Shao Zhi<br>
