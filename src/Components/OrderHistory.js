@@ -7,11 +7,24 @@ import axios from 'axios';
 function OrderHistory() {
   const [items, setItems] = useState([]);
 
-  // Retrieve username and name from localStorage
-  const username = localStorage.getItem('username');
-  const name = localStorage.getItem('name');
-
   useEffect(() => {
+    const storedUserDetails = localStorage.getItem('userDetails');
+  
+    let username = '';
+    let name = '';
+  
+    if (storedUserDetails) {
+      const userDetails = JSON.parse(storedUserDetails);
+      username = userDetails.username;
+      name = userDetails.name;
+  
+      console.log(userDetails.username); // Should print 'shaozhi'
+      console.log(userDetails.name); // Should print 'Shao Zhi'
+      console.log(userDetails.address); // Should print '123 Main St'
+    } else {
+      console.log('No userDetails found in localStorage');
+    }
+  
     if (username && name) {
       // Fetch order history when the component mounts
       axios.get(`http://localhost:3009/order-history/${username}/${name}`)
@@ -25,7 +38,7 @@ function OrderHistory() {
     } else {
       console.error('Username or name is missing from localStorage');
     }
-  }, [username, name]); // Run effect when username or name changes
+  }, []); // Empty dependency array ensures the effect runs only once, on mount
 
   return (
     <div className="MainPageFlex">
@@ -33,12 +46,11 @@ function OrderHistory() {
         <img className="Logo" src={Logo} alt="Logo" />
         <h1 className="WelcomeText">Order History</h1>
         <Link to="/mart">
-          <button className="navButton">Back</button>
+          <button className="Back">Back</button>
         </Link>
       </div>
       <div className="HomePageBottomDiv">
         <div id="CartDiv">
-          <h1 id="CartText">Cart</h1>
           {items.length > 0 ? (
             items.map((item) => (
               <div className="CartItem" key={item.product_id}>

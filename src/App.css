@@ -5,6 +5,8 @@
 }
 
 html, body, #root {
+  margin: 0;
+  padding: 0;
   height: 100%; 
   overflow-x: hidden;
 }
@@ -12,35 +14,50 @@ html, body, #root {
 .MainPageFlex{
   display:flex;
   flex-direction: column;
-  height: 100%;
+  align-items: center;
+  height: 100vh;
 }
 
 .HomePageTopDiv{
-  height: 180px;
-  width: 100%;
+  height: 170px;
+  width: 95%;
   background-color: white;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
+  flex-shrink: 0;
 }
 
-.Logo{
-  width: 170px;
+.Empty{
+  width: 150px;
   height: 170px;
+}
+
+.Logo {
+  width: 150px;
+  height: 150px;
+  border-radius: 20%; /* Make it a circle */
+  border: 3px solid #4A81B4; /* Stylish blue border */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+  object-fit: cover; /* Ensures the image covers the entire circle */
+  transition: all 0.3s ease; /* Smooth transitions for hover effects */
+}
+
+.Logo:hover {
+  transform: scale(1.1); /* Slightly scale the logo when hovered */
+  opacity: 0.8; /* Add opacity effect for hover */
 }
 
 .WelcomeText {
   font-size: 40px;
 }
 
-
-
 .HomePageBottomDiv{
   background-color: #6699CC;
   width: 100%;
-  height: auto;
-  flex-grow: 1;
+  height: calc(100% - 170px);
+  min-height: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -48,13 +65,17 @@ html, body, #root {
   overflow-y: scroll;
 }
 
+.HomePageBottomDiv::-webkit-scrollbar {
+  display: none; /* Hide scrollbar */
+}
+
 .HomePageBottomDivShop{
   background-color: #6699CC;
   width: 100%;
   display: flex;
+  flex-grow: 1;
   flex-direction: column;
   justify-content: start;
-  height: 100%;
 }
 
 #LoginDiv{
@@ -257,8 +278,8 @@ html, body, #root {
 #NavBarMart{
   display: flex;
   align-items: center;
-  width: 800px;
   justify-content: space-evenly;
+  width: 75%;
 }
 
 #NavBar{
@@ -269,10 +290,22 @@ html, body, #root {
   align-items: center;
 }
 
+.Back{
+  width: 100px;
+  margin-right: 50px;
+  background-color: #6699CC;
+  height: 50px;
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
 .navButton {
   background-color: #6699CC;
   height: 50px;
-  width: 120px;
+  width: 150px;
   font-size: 20px;
   color: white;
   font-weight: bold;
@@ -291,6 +324,13 @@ html, body, #root {
 #CartContainer {
   position: relative;
   display: inline-block;
+  width: 150px;
+  transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth transition for both scale and color */
+  transform-origin: center center;
+}
+
+#CartContainer:hover{
+  transform: scale(1.05);
 }
 
 #Cart {
@@ -298,10 +338,11 @@ html, body, #root {
   height: 40px;
 }
 
+
 .cart-badge {
   position: absolute;
   top: -10px;
-  right: -25px;
+  right: 85px;
   background-color: red;
   color: white;
   font-weight: bold;
@@ -344,6 +385,7 @@ html, body, #root {
 .CategoryRow {
   display: flex;
   flex-direction: column;
+  margin-top: 20px;
   margin-left: 200px;
   margin-right: 200px;
 }
@@ -357,8 +399,10 @@ html, body, #root {
   text-transform: uppercase; /* Make text uppercase for a bolder impact */
   padding: 10px 0; /* Padding for top and bottom to balance the height */
   border-radius: 8px; /* Rounded corners for a softer look */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Light shadow to make it pop */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7); /* Light shadow to make it pop */
   display: inline-block; /* Ensures it doesn't take full width */
+  margin-bottom: 20px;
+  background-color: #FF9A8B;
 }
 
 .Products {
@@ -373,7 +417,7 @@ html, body, #root {
 
 /* Customize the appearance of the horizontal scrollbar */
 .Products::-webkit-scrollbar {
-  height: 8px;  /* Height of the scrollbar */
+  height: 10px;  /* Height of the scrollbar */
 }
 
 .Products::-webkit-scrollbar-track {
@@ -382,7 +426,7 @@ html, body, #root {
 }
 
 .Products::-webkit-scrollbar-thumb {
-  background: #888;  /* Color of the scrollbar thumb */
+  background-color: #1560bd; /* Color of the thumb */
   border-radius: 5px;  /* Round the corners of the scrollbar thumb */
 }
 
@@ -401,7 +445,7 @@ html, body, #root {
 .ProductSquare {
   width: 210px; 
   height: 220px; 
-  background-color: #f0f0f0; 
+  background-color: white; 
   border-radius: 15px; 
   display: flex;
   flex-direction: column;
@@ -419,7 +463,7 @@ html, body, #root {
 }
 
 .ProductSquare:hover {
-  border: 5px solid #1560bd; /* Blue border on hover */
+  border: 4px solid #1560bd; /* Blue border on hover */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
 }
 
@@ -437,11 +481,11 @@ html, body, #root {
 }
 
 .add-to-cart-button {
-  background-color: #1560bd; /* Green background */
+  background-color: green; 
   color: white; /* White text */
   font-size: 16px; /* Font size */
+  font-weight: bold;
   padding: 10px 20px; /* Padding around the text */
-  border: none; /* No border */
   border-radius: 5px; /* Rounded corners */
   cursor: pointer; /* Pointer cursor on hover */
   transition: background-color 0.3s ease; /* Smooth transition */
@@ -479,6 +523,7 @@ html, body, #root {
   color: black;
   text-align: center;
   margin-top: 40px;
+  height: auto;
 }
 
 /* Styling for the Product Division */
@@ -590,7 +635,8 @@ html, body, #root {
   background-color: white;
   border-radius: 10px;
   width: 50%;
-  height: 80%;
+  margin-top: 20px;
+  height: 85%;
   border: 2px solid black;
   display: flex;
   flex-direction: column;
@@ -598,6 +644,12 @@ html, body, #root {
   align-items: center;
   overflow-y: scroll;
   padding-right: 10px; /* Optional: Adds space to prevent content being hidden by the scrollbar */
+}
+
+#CartEmptyText{
+  font-size: 20px;
+  font-weight: bold;
+  margin: auto auto;
 }
 
 /* Custom scrollbar styles */
@@ -621,8 +673,10 @@ html, body, #root {
 }
 
 #CartText{
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 30px;
 }
 
 .CartItem {
@@ -631,7 +685,7 @@ html, body, #root {
   display: flex;
   align-items: center;
   flex-direction: row;
-  margin-bottom: 20px;
+  margin-top: 20px;
   padding: 20px;
   border-radius: 10px; /* Rounded corners for a softer look */
   background-color: #f9f9f9; /* Light background to contrast with the border */
@@ -728,4 +782,773 @@ html, body, #root {
 
 #SubmitButton:hover {
   background-color: #218838; /* Darker green on hover */
+}
+
+.dashButton{
+  background-color: #3e9bff;
+  height: 250px;
+  width: 250px;
+  font-size: 30px;
+  color: white;
+  font-weight: bolder;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+#DashBar{
+  text-align: center;
+  width: 50%;
+  background-color: #6699CC;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 100px; /* Adds spacing between the boxes */
+  max-width: 400px; /* Adjust to control the width of the layout */
+  align-items:center;
+  justify-content: center; 
+}
+
+#MainDashBoard{
+  display: flex;
+  flex-direction: row;
+  gap: 150px;
+}
+
+.dashButton:hover {
+  background-color: #1a7af0; /* Slightly darker blue on hover */
+  transform: translateY(-10px) scale(1.02); /* Slightly lift and scale */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.dashButton:active {
+  transform: translateY(2px) scale(0.98); /* Pressed-down effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.listdiv {
+  width: 75%;
+  display:flex;
+  flex-direction: column;
+  min-width: 800px;
+  margin: 0 auto;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: white;
+  overflow-x: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: shadow for a clean look */
+}
+
+.listbackdiv{
+  min-height: 200px;
+}
+
+.userHeader, .userdiv {
+  display: flex;
+  flex-wrap: nowrap; /* Prevent wrapping of columns */
+  justify-content: space-between;
+  padding: 10px 20px;
+  align-items: center;
+  text-align: center;
+}
+
+.userHeader {
+  background-color: #4A81B4;
+  color: white;
+  font-weight: bold;
+  height: 50px;
+}
+
+.userdiv {
+  border-bottom: 1px solid #ddd;
+  background-color: #f7f9fc;
+  height: 50px;
+}
+
+.userHeader div, .userdiv div {
+  padding: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+}
+
+.userName {
+  flex: 1; /* Smallest width */
+  max-width: 100px;
+}
+
+.userDateCreated {
+  flex: 1; /* Small width */
+  max-width: 100px;
+}
+
+.userEmail {
+  flex: 3; /* Takes more space */
+  max-width: 400px; /* Prevents excessive width */
+}
+
+.userPhone {
+  flex: 2; /* Slightly less than email */
+  max-width: 200px;
+}
+
+.UserDelete {
+  flex: 1; /* Equal for buttons */
+  max-width: 80px;
+}
+
+.scrollable {
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+button.UserDelete {
+  width: 25px; /* Smaller width */
+  height: 30px; /* Smaller height */
+  border: none;
+  background-color: #FF4D4D; /* Red background */
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
+
+button.UserChangePw:hover, button.UserDelete:hover {
+  background-color: #4A81B4;
+}
+
+button.UserDelete img {
+  width: 20px; /* Size of the icon */
+  height: 20px;
+}
+
+button.UserDelete:hover {
+  background-color: #CC0000; /* Darker red on hover */
+}
+
+.UserChangePw {
+  flex: 1; /* Maintain flex alignment */
+  display: flex;
+  justify-content: center; /* Center the reset button horizontally */
+  align-items: center;
+}
+
+.resetButtonWrapper {
+  width: 90px; /* Fixed width for the reset button container */
+  flex-shrink: 0; /* Prevent shrinking or stretching */
+  text-align: center;
+}
+
+.UserChangePwButton {
+  width: 100%; /* Ensure the button fits inside the container */
+  height: 30px; /* Small fixed height */
+  background-color: #6B8FC3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.UserChangePwButton:hover {
+  background-color: #4A81B4; /* Darker blue on hover */
+}
+
+.addButtonContainer {
+  display: flex;
+  justify-content: center; /* Center the button horizontally */
+  margin-top: 20px; /* Add spacing above the button */
+}
+
+.addUserButton {
+  width: 120px; /* Button width */
+  height: 40px; /* Button height */
+  background-color: #4A81B4; /* Blue background */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.addUserButton:hover {
+  background-color: #3A71A4; /* Darker blue on hover */
+}
+
+.addUserButton:active {
+  background-color: #2F5A82; /* Pressed-down effect */
+  transform: translateY(2px); /* Slightly lower when clicked */
+}
+
+.InvMain {
+  display: flex;
+  justify-content: center; /* Centers all items horizontally */
+  flex-wrap: wrap; /* Allows items to wrap to the next line */
+  gap: 20px; /* Adds space between the product cards */
+  margin-bottom: 30px;
+}
+
+.InvProduct {
+  background-color: white;
+  padding: 0;
+  width: 250px;
+  height: 400px; /* Fixed height for consistent size */
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden; /* Prevent overflow issues */
+  margin-bottom: 25px;
+}
+
+.icon {
+  width: 100%;
+  height: 50%; /* Takes up half the height */
+}
+
+.AddNewDiv{
+  height: 100%;
+  width: 95%;
+  margin: auto auto;
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 50px;
+}
+
+.InvFields {
+  height: 50%; /* Takes up the other half of the box */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around; /* Space out the fields within this section */
+  padding: 10px;
+  width: 100%;
+}
+
+.InvQtybox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.InvQty {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.InvQtyNumber {
+  font-size: 16px;
+  width: 10px;
+}
+
+.InvAddRemoveBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.InvEditBtn {
+  width: 50%;
+  height: 40px;
+  background-color: #4A81B4; /* Blue background */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.InvNewQty{
+  width: 48%;
+  height: 40px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.InvAddBtn:hover,
+.InvDelBtn:hover {
+  background-color: #3b6ca0; /* Slightly darker hover */
+}
+
+.InvDelete {
+  background-color: #ff6666;
+  color: white;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.InvDelete:hover {
+  background-color: #e55b5b;
+}
+
+.InvBot {
+  display: flex;
+  justify-content: space-evenly; /* Pushes buttons to the left and right extremes */
+  width: 100%;
+  padding: 0 20px; /* Adds a gap between the buttons and the screen edges */
+  margin-top: 20px;
+  margin-bottom: 30px;;
+}
+
+.InvAddNew
+{
+  width: 120px;
+  height: 60px;
+  background-color: #27ae60;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.InvAddNew:hover
+{
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+.BackToDashboardButton {
+  padding: 10px 20px !important;
+  background-color: #4A81B4 !important;
+  color: white !important;
+  font-size: 16px !important;
+  border: none !important;
+  border-radius: 5px !important;
+  font-weight: bold !important;
+  cursor: pointer !important;
+  width: 150px !important;
+  text-align: center !important;
+}
+
+#BackToDashboardButton:hover {
+  background-color: #3B6CA0 !important;
+}
+
+#BackToDashboardButton:active {
+  transform: scale(0.98) !important;
+}
+
+.AddNewProductMain {
+  display: flex;
+  gap: 20px;
+  flex: 1;
+  width: 100%; /* Full width for the container */
+  align-items: flex-start; /* Align items to the top */
+}
+
+.AddNewImageDiv{
+  width: 100%;
+  height: 400px;
+  display:flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.AddNewUploadPhoto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1; /* Allocate proportionate space */
+  max-width: 30%; /* Restrict maximum width to 30% of the container */
+}
+
+.AddNewPhotoBox {
+  background-color: white;
+  width: 100%; /* Make it responsive within the parent */
+  height: 300px; /* Larger and more appealing size */
+  border-radius: 15px; /* Rounded corners for a softer look */
+  border: 2px dashed #4A81B4; /* Dashed border for a modern touch */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #777; /* Subtle text color */
+  text-align: center;
+  position: relative;
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+  cursor: pointer; /* Make it interactive */
+}
+
+.AddNewPhotoBox:hover {
+  border-color: #3b6ca0; /* Darker blue on hover */
+  background-color: #f0f8ff; /* Light blue background on hover */
+}
+
+.AddNewPhotoPreview {
+  object-fit: cover; /* Ensures the uploaded image fits the box */
+  border-radius: 15px; /* Matches the container */
+}
+
+.EmptyImagePreview{
+  width: 370px;
+  height: 320px;
+  background-color: white;
+  border: 2px solid black;
+  object-fit: cover; /* Ensures the uploaded image fits the box */
+  border-radius: 15px; /* Matches the container */
+}
+
+.AddNewPhotoInput {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0; /* Hidden input for accessibility */
+  cursor: pointer;
+}
+
+.AddNewProductInfo {
+  flex: 2; /* Allocate more space for description and quantity */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%; /* Stretch to fill available space */
+}
+
+.AddNewDescriptionBox {
+  background-color: white;
+  width: 100%; /* Stretch the description box */
+  height: 300px; /* Increased height for better usability */
+  border-radius: 15px;
+  border: 2px solid #4A81B4;
+  padding: 15px;
+  font-size: 16px;
+  font-weight: normal;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  resize: none;
+}
+
+.AddNewDetailsBox {
+  background-color: white;
+  width: 100%; /* Stretch the quantity box */
+  height: 60px; /* Slightly taller */
+  border-radius: 15px;
+  border: 2px solid #4A81B4;
+  padding: 15px;
+  font-size: 18px; /* Increased font size */
+  font-weight: normal;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.AddNewButtonGroup {
+  display: flex;
+  flex-direction: column; /* Stack buttons vertically */
+  align-items: flex-end; /* Align buttons to the right */
+  gap: 10px; /* Space between buttons */
+  z-index: 1000; /* Ensure it stays on top of other elements */
+}
+
+.AddNewAddProductButton,
+.AddNewBack {
+  width: 120px;
+  height: 50px;
+  background-color: #4A81B4;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.AddNewAddProductButton:hover,
+.AddNewBack:hover {
+  background-color: #3b6ca0;
+}
+
+.AddNewBack {
+  background-color: #777;
+  color: white;
+}
+
+.AddNewHomePageBottomDiv {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 20px;
+  background-color: #6699CC;
+}
+
+.AddNewProductMain {
+  display: flex;
+  gap: 20px;
+  flex: 1;
+  width: 100%; /* Full width for the container */
+  align-items: center; /* Align items to the top */
+}
+
+.AddNewUploadPhoto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1; /* Allocate proportionate space */
+  max-width: 30%; /* Restrict maximum width to 30% of the container */
+}
+
+.AddNewPhotoBox {
+  background-color: white;
+  width: 100%; /* Make it responsive within the parent */
+  height: 380px; /* Larger and more appealing size */
+  border-radius: 15px; /* Rounded corners for a softer look */
+  border: 2px dashed #4A81B4; /* Dashed border for a modern touch */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #777; /* Subtle text color */
+  text-align: center;
+  position: relative;
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+  cursor: pointer; /* Make it interactive */
+}
+
+.AddNewPhotoBox:hover {
+  border-color: #3b6ca0; /* Darker blue on hover */
+  background-color: #f0f8ff; /* Light blue background on hover */
+}
+
+.AddNewPhotoPreview {
+  width: 350px;
+  height: 350px;
+  object-fit: cover; /* Ensures the uploaded image fits the box */
+  border-radius: 15px; /* Matches the container */
+}
+
+.AddNewPhotoInput {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0; /* Hidden input for accessibility */
+  cursor: pointer;
+}
+
+.AddNewProductInfo {
+  flex: 2; /* Allocate more space for description and quantity */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%; /* Stretch to fill available space */
+}
+
+.AddNewDescriptionBox {
+  background-color: white;
+  width: 100%; /* Stretch the description box */
+  height: 150px; /* Increased height for better usability */
+  border-radius: 15px;
+  border: 2px solid #4A81B4;
+  padding: 15px;
+  font-size: 16px;
+  font-weight: normal;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  resize: none;
+}
+
+.AddNewQuantityBox {
+  background-color: white;
+  width: 100%; /* Stretch the quantity box */
+  height: 60px; /* Slightly taller */
+  border-radius: 15px;
+  border: 2px solid #4A81B4;
+  padding: 15px;
+  font-size: 18px; /* Increased font size */
+  font-weight: normal;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.AddNewButtonGroup {
+  position: fixed; /* Fix the position on the screen */
+  bottom: 50px; /* Distance from the bottom of the page */
+  right: 20px; /* Distance from the right edge of the page */
+  display: flex;
+  flex-direction: column; /* Stack buttons vertically */
+  align-items: flex-end; /* Align buttons to the right */
+  gap: 10px; /* Space between buttons */
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.AddNewAddProductButton,
+.AddNewBack {
+  width: 120px;
+  height: 40px;
+  background-color: #4A81B4;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.AddNewAddProductButton:hover,
+.AddNewBack:hover {
+  background-color: #3b6ca0;
+}
+
+.AddNewBack {
+  background-color: #777;
+  color: white;
+}
+
+#InvCategory {
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #e55b5b; /* Light background for the category */
+  border-radius: 8px; /* Soft rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+  font-family: 'Arial', sans-serif; /* Nice, clean font */
+}
+
+#InvCategory h2 {
+  color: #c0392b; /* Darker text for readability */
+  font-size: 24px; /* Slightly larger font size */
+  font-weight: bold;
+  text-transform: uppercase; /* Make the category name stand out */
+  letter-spacing: 1px; /* Add spacing between letters */
+  margin-bottom: 10px; /* Space between the title and the products */
+}
+
+.CategoryInputGroup {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.CategoryDropdown,
+.CategoryManualInput {
+  flex: 1;  /* This allows both elements to take up equal space */
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.CategoryManualInput {
+  margin-left: 10px;  /* Optional: to create space between the dropdown and the input */
+}
+
+.ManageOrders_Content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.ManageOrders_Row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+}
+
+.ManageOrders{
+  font-size: 16px;
+  font-weight: bold;
+  color: #003366;
+  width: 200px;
+}
+
+/* Complete Order Button */
+.ManageOrders_CompleteButton {
+  padding: 5px 15px;
+  background-color: #4A81B4;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100px;
+}
+
+.ManageOrders_CompleteButton:hover {
+  background-color: #3B6CA0;
+}
+
+/* Footer Section */
+.ManageOrders_Footer {
+  display: flex;
+  justify-content: flex-end;
+  width: 90%;
+  padding: 20px;
+}
+
+.BackButtonContainer {
+  width: 150px;
+}
+
+/* Back to Dashboard Button */
+.BackButton {
+  padding: 10px 20px;
+  background-color: #4A81B4;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 150px;
+  text-align: center;
+}
+
+.BackButton:hover {
+  background-color: #3B6CA0;
+}
+
+.BackButton:active {
+  transform: scale(0.98); /* Shrink slightly on click */
+}
+
+.BackButton:focus {
+  outline: none; /* Remove outline */
+}
+
+
+.OrdersDiv{
+  height: 100%;
 }

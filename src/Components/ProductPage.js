@@ -51,8 +51,8 @@ function ProductPage({ cart, setCart }) {
             placeholder="Search..."
           />
           <Link to="/mart">
-                  <button className='navButton'>Back</button>
-            </Link>
+            <button className='navButton'>Back</button>
+          </Link>
         </div>
         <Link to="/cart" state={{ cart }}>
             <div id="CartContainer">

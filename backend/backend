@@ -1,0 +1,7 @@
+<script>start("/Users/soongshaozhi/Documents/Coding Projects/minimart/backend/");</script>
+<script>onHasParentDirectory();</script>
+<script>addRow("node_modules","node_modules",1,3392,"3.3 kB",1737014176,"16/01/2025, 15:56:16");</script>
+<script>addRow(".env",".env",0,81,"81 B",1736790053,"14/01/2025, 01:40:53");</script>
+<script>addRow("index.js","index.js",0,7766,"7.6 kB",1737017861,"16/01/2025, 16:57:41");</script>
+<script>addRow("package-lock.json","package-lock.json",0,41127,"40.2 kB",1736786071,"14/01/2025, 00:34:31");</script>
+<script>addRow("package.json","package.json",0,425,"425 B",1736783267,"13/01/2025, 23:47:47");</script>

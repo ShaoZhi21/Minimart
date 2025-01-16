@@ -86,8 +86,8 @@ function MartPage({ cart, setCart }) {
             <Link to="/auction">
               <button className="navButton">Auction</button>
             </Link>
-            <Link to={`/orderhistory/${username}/${name}`}>
-              <button className="navButton">View Order History</button>
+            <Link to="/orderhistory">
+              <button className="navButton">Order History</button>
             </Link>
           </div>
         </div>
@@ -125,7 +125,7 @@ function MartPage({ cart, setCart }) {
             )
           ))
         ) : (
-          <div className="NoCategories">No categories available</div>
+          <div className="NoCategories HomePageBottomDiv">No categories available</div>
         )}
       </div>
     </div>

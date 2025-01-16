@@ -10,7 +10,7 @@ function Voucher() {
         <img className="Logo" src={Logo} alt="Logo"></img>
         <h1 className="WelcomeText">Vouchers</h1>
         <Link to="/mart">
-        <button className='navButton'>Back</button>
+        <button className='Back'>Back</button>
         </Link>
       </div>
       <div className="HomePageBottomDiv">

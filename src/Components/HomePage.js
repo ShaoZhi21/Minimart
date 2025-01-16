@@ -59,7 +59,8 @@ function HomePage() {
     <div className="MainPageFlex">
       <div className="HomePageTopDiv">
         <img className="Logo" src={Logo} alt="Logo"></img>
-        <h1 className="WelcomeText">Welcome to Muhammadiyah Welfare Home Minimart</h1>
+        <h1 className="WelcomeText">Muhammadiyah Welfare Home Minimart</h1>
+        <div className="Empty"></div>
       </div>
       <div className="HomePageBottomDiv">
         <div id="LoginDiv">

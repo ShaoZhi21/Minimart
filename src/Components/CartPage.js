@@ -60,12 +60,11 @@ function CartPage({ cart, setCart }) {
                     <img className="Logo" src={Logo} alt="Logo"></img>
                     <h1 className="WelcomeText">Cart</h1>
                     <Link to="/mart">
-                    <button className='navButton'>Back</button>
+                    <button className='Back'>Back</button>
                     </Link>
                   </div>
             <div className="HomePageBottomDiv">
                 <div id="CartDiv">
-                    <h1 id="CartText">Cart</h1>
                     {updatedCart.length > 0 ? 
                         updatedCart.map((item) => (
                             <div className="CartItem" key={item.id}>
@@ -86,7 +85,7 @@ function CartPage({ cart, setCart }) {
                             </div>
                         ))
                     : (
-                        <p>Your cart is empty.</p>
+                        <p id="CartEmptyText">Your cart is empty.</p>
                     )}
                 </div>
                 <Link to="/mart">
