@@ -2,12 +2,7 @@
 
 ## Project Overview
 
-The **Muhammadiyah Welfare Home Minimart Website** is a web application developed as part of the **Hack4Good Hackathon**. The goal of this project is to provide an online minimart for the welfare home, allowing them to manage and sell essential goods, all while creating a user-friendly platform for both administrators and customers. The website facilitates:
-
-- User registration and login
-- Product listing and categorization
-- Order placement and order history tracking
-- Admin functions like adding products, updating stock, and viewing user information
+The **Muhammadiyah Welfare Home Minimart Website** is a web application developed as part of the **Hack4Good Hackathon**. The goal of this project is to provide an online minimart for the welfare home, allowing them to manage and sell essential goods, all while creating a user-friendly platform for both administrators and customers. 
 
 ## Features
 
