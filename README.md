@@ -4,6 +4,19 @@
 
 The **Muhammadiyah Welfare Home Minimart Website** is a web application developed as part of the **Hack4Good Hackathon**. The goal of this project is to provide an online minimart for the welfare home, allowing them to manage and sell essential goods, all while creating a user-friendly platform for both administrators and customers. 
 
+## Context and Purpose
+**Mission of the NPO**
+This project supports [Name of NPO], which helps boys aged 10-19 who have experienced neglect, abuse, homelessness, or involvement in the juvenile justice system. The NPO aims to provide a safe environment where these boys can rebuild their lives and develop essential life skills.
+
+**Intended Users**
+The minimart prototype serves the boys in the NPO’s care, allowing them to access basic necessities such as food, hygiene products, and clothing, empowering them to meet their needs independently.
+
+**The Role of the Minimart**
+The minimart provides an online platform for boys to select and request essential items, offering both access to necessities and a sense of autonomy, which contributes to their well-being and dignity.
+
+**Long-Term Impact**
+The minimart aims to improve the boys' quality of life by addressing immediate needs and fostering independence, while also helping them develop life skills and self-esteem, supporting their long-term growth and rehabilitation.
+
 ## Features
 
 ### User Features
@@ -18,6 +31,18 @@ The **Muhammadiyah Welfare Home Minimart Website** is a web application develope
 - **Manage Users**: Admins can view all users and delete users if necessary.
 - **Manage Products**: Admins can add, update, and delete products from the inventory.
 - **Order Management**: Admins can view all orders and complete order items.
+
+### Technical Features and Benefits
+
+**Front-End Interface:** The front-end of the minimart is designed to be intuitive and easy to use. It allows the boys to browse through available products, select what they need, and place their orders. This interface helps give the boys a sense of control and independence over their choices, fostering a sense of normalcy and dignity as they manage their own needs.
+
+**Back-End System:** The back-end of the minimart is responsible for processing the boys' orders and maintaining an up-to-date inventory. It ensures that orders are tracked, processed efficiently, and the inventory reflects the most current stock levels. This backend ensures that caretakers and administrators can monitor orders and ensure that supplies are always available.
+
+**Secure User Access:** To keep the boys' personal information safe, we’ve implemented a secure login process. This ensures that only authorized users can access their accounts and request items from the minimart, protecting their privacy and security.
+
+**Inventory Management:** The minimart system keeps track of all available products, like food and hygiene items. This helps ensure that the NPO always has enough supplies on hand to meet the boys' needs, making sure they never run out of essentials.
+
+**Efficient Order Processing:** Once an order is placed, it is processed and fulfilled quickly, ensuring that the boys receive the items they request without delay. This streamlines the process and reduces wait times for essential supplies.
 
 ## Tech Stack
 
