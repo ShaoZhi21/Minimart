@@ -103,43 +103,40 @@ The **Muhammadiyah Welfare Home Minimart Website** is a web application develope
         name VARCHAR(255)
     );
 6. **Run the Application**: 
-    **Backend**
     ```bash
     cd backend
     node index.js
-    **Frontend**
-    ```bash
-    cd minimart
+    cd .. // To minimart
     npm start
 The frontend will now be available at http://localhost:3000, and the backend at http://localhost:3009.<br>
 
 ## API Endpoints
-**Auth Routes**<br>
+### Auth Routes <br>
 POST /signup - Register a new user<br>
 POST /login - Log in and receive a JWT token<br>
 
-**Product Routes**<br>
+### Product Routes <br>
 GET /products - Get all products with their categories<br>
 POST /products - Add a new product (Admin)<br>
 DELETE /products/:id - Delete a product (Admin)<br>
 PUT /products/:id - Update product quantity (Admin)<br>
 
-**Order Routes**<br>
+### Order Routes<br>
 POST /submit-order - Submit an order with the products from the cart<br>
 GET /order-history/:username/:name - View order history<br>
 
-**User Routes**<br>
+### User Routes<br>
 GET /users - Fetch all users (Admin)<br>
 DELETE /users/:id - Delete a user (Admin)<br>
 
-**Usage**<br>
+### Usage<br>
 Register: Create a new account by providing your name, email, phone, username, password, and account type.<br>
 Log in: Log in using your username and password.<br>
 Browse Products: Search or browse products by category.<br>
 Add to Cart: Add products to your shopping cart.<br>
 Checkout: Submit your order with the products in your cart.<br>
 
-**Created by**:<br>
+### Created by:<br>
 Soong Shao Zhi<br>
 Lee Chong Rui<br>
 William Chua<br>
